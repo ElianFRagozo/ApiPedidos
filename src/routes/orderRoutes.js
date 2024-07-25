@@ -1,7 +1,11 @@
 const express = require('express');
+const bodyParser = require('body-parser');
 const orderController = require('../controllers/orderController');
 
 const router = express.Router();
+
+// Aplicar body-parser solo a rutas que necesiten analizar JSON
+router.use(bodyParser.json());
 
 //Ruta para crear un pedido
 router.post('/', orderController.createOrder);
